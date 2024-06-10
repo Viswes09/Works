@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<body>-->
+    <!--<h2>Embedded Video Example</h2>-->
+    <!--<video width="1000" height="1000" controls>-->
+    <!--    <source src="OVERALL US REPORTS PAGE.mp4" type="video/mp4">-->
+    <!--</video>-->
+    <!--</body>-->
+    <title>Overall Report Page</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: slideshow;
+    animation-duration: 12s; /* Adjust the duration for the slideshow */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+            /*background-image: url('OVERALL US REPORTS PAGE.png');*/
+        }
+        @keyframes slideshow {
+    0%, 33.33% {
+        /*5601*/
+        background-image: url('https://images1.loopnet.com/i2/KP7yYp2JVv7ADgW2MTzdXmrxBrl1Fir_2TLW40CaFIc/110/5601-Executive-Dr-Irving-TX-5601-Executive-Drive-1-Large.jpg');
+    }
+    33.33%, 66.66% {
+        /*3555*/
+        background-image: url('https://s3.amazonaws.com/transwestern-property/Images/3df8c850-6ed8-eb11-bacb-000d3a58c400_t.jpg');
+    }
+    66.66%, 100% {
+        /*11350*/
+        background-image: url('https://images1.loopnet.com/i2/F_H1Fen-IC1OpsOr0x17OTFD6Sjz6_IYxesOE-OuFTw/112/image.jpg');
+    }
+}
+
+
+        .sidebar {
+    position: fixed;
+    top: 0;
+    /*left: -230px;*/
+    width: 335px;
+    height: 100%;
+   background-color: rgba(51, 51, 51, 0.8);
+   /*font-size:16px;*/
+    color: white;
+    padding-top: 20px;
+    transition: left 0.3s; /* Add transition for smooth animation */
+}
+ .sidebar-hover-enabled {
+            left: 0;
+        }
+/*.sidebar-hover {*/
+/*    left: 0;*/
+/*}*/
+
+
+body.sidebar-open .sidebar {
+    left: 0;
+}
+
+body.sidebar-open .sidebar:hover {
+    left: 0;
+}
+
+        .sidebar a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            font-size:18px;
+           
+        }
+         img {
+            width: 500px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+              .web-footer {
+      display: none;
+      visibility:hidden;
+      }
+          .navbar {
+       display: none;
+       visibility:hidden;
+       }
+
+        .sidebar a:hover {
+            background-color: #6ACD70;
+        }
+        .sidebar-hover-enabled .sidebar {
+    left: 0;
+}
+
+
+        .dropdown-content {
+            display: none;
+        }
+        .dropdown-content a:hover {
+     color: white; /* Default hover color for all dropdown links */
+}
+
+        .dropdown-content.active {
+            display: block;
+        }
+
+        /*.content {*/
+        /*    margin-left: 250px;*/
+        /*    padding: 20px;*/
+        /*}*/
+        a:hover {
+    color: white;
+    text-decoration: underline;
+     }
+
+         h1 {
+            color: Black;
+             margin: 25px;
+            padding: 25px;
+            padding-top: 200px;
+            padding-bottom: 0px;
+            margin-top:0px;
+            margin-bottom:0px;
+        }
+   .loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+     
+
+        p {
+            text-align: center;
+            background-color: #333;
+            margin-top:10px;
+            padding-top: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            font-size: 25px;
+        }
+h4 {
+          text-align: center;
+            padding: 0;
+            margin: 0;
+            font-size: 24px; /* Adjust the font size as needed */
+            font-weight: 700; /* Optionally, specify font weight */
+            color: #333;/* Optionally, specify font color */
+            font-family: 'Montserrat', sans-serif; 
+}
+
+h5 {
+         
+          
+            font-size: 24px; /* Adjust the font size as needed */
+            font-weight: 700; /* Optionally, specify font weight */
+            
+}
+ h4 .arrow {
+            animation: blink 1s infinite alternate; /* Blink animation */
+            color: red; /* Adjust arrow color */
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+
+        /* Adjustments for ERPNext styles */
+         .dot {
+  height: 6px;
+  width: 6px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 3px; /* Adjust this value for the desired spacing */
+  animation: blink 1s infinite alternate; /* Blink animation */
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+}
+
+        .selected-link {
+            background-color: #6ACD70;
+        }
+
+        .dropdown-content a {
+            padding: 10px 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="#" onclick="toggleDropdown('TenantsDropdown')" style="font-size: 22px;">TENANTS &#9662;</a>
+
+        <div class="dropdown-content" id="TenantsDropdown">
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/hourly-call-report-Houston', 'Houston Hourly')">&#8226; Houston Hourly <span style="color: red;"><span class="dot"></span> Live</span></a>
+            <!--<a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Tenants-Hourly-Call-Report-Fairfax','Fairfax Hourly')">&#8226; Fairfax Hourly <span style="color: red;"><span class="dot"></span> Live</span></a>-->
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/hourly-call-report-Irving','Irving Hourly')">&#8226; Irving Hourly <span style="color: red;"><span class="dot"></span> Live</span></a>
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Call-Report-Houston','Houston Yesterdays')">&#8226; TCR - Houston</a>
+            <!--<a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Tenant-Call-Report-Remo-Team','Fairfax Yesterdays Report')">&#8226; TCR - Fairfax</a>-->
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Tenant-Call-Report-AB-Team','Irving yesterdays')">&#8226; TCR - Irving</a>
+            <!--<a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Prospect-Missed-Followups-Fairfax','Missed Followup Fairfax')">&#8226; Prospect Missed-Fairfax</a>-->
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Prospect-Missed-Followups-Houston','Missed Followup Houston')">&#8226; Prospect Missed-Houston</a>
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Prospect-Missed-Followups-Irving','Missed Followup Houston')">&#8226; Prospect Missed-Irving & Dallas</a>
+        </div>
+
+        <a href="#" onclick="toggleDropdown('BrokersDropdown')" style="font-size: 22px;">BROKERS & INVESTORS &#9662;</a>
+        <div class="dropdown-content" id="BrokersDropdown">
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Overall-Brk&Ins-Report','Sale - Inventory')">&#8226; Overall BRK & INS Report</a>
+            <!--<a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/OMSent-Excellent&Hot','OM Sent')">&#8226; BRK & INS - OM Sent</a>-->
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Hourly-Broker-Investor-Report','Hourly')">&#8226; BCR - Hourly <span style="color: red;"><span class="dot"></span> Live</span></a>
+          <!--<a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/broker-call','BCR - Fairfax')">&#8226; BCR - Fairfax</a>-->
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/combined-investors-and-brokers-report','Yesterdays Report')">&#8226; BCR - (Sale)</a>
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/BrokercallreportDallas','Yesterdays Report')">&#8226; BCR - MSA DALLAS</a>
+            <a class="dynamicDateLink" href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/BrokercallreportHouston','Yesterdays Report')">&#8226; BCR - MSA HOUSTON</a>
+        </div>
+
+        <a href="#" onclick="toggleDropdown('WeeklyDropdown')" style="font-size: 22px;">WEEKLY TCR & BCR &#9662;</a>
+        <div class="dropdown-content" id="WeeklyDropdown">
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Weekly-TCR-Houston','Weekly Houston')">&#8226; Weekly - Houston - TCR</a>
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/Weekly-TCR-Irving','Weekly Irving')">&#8226; Weekly - Irving - TCR</a>
+            <!--<a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/weekly-tcr--fairfax-',' Weekly Fairfax')">&#8226; Weekly - Fairfax - TCR</a>-->
+            <a href="#" onclick="highlightLink(this); loadContent('http://10.10.0.33/weekly-sale-call',' Weekly Sale')">&#8226; Weekly - Sale</a>
+        </div>
+        
+        <!--<button onclick="goHome()" style="position: absolute; bottom: 20px; left: 20px;">Home</button>-->
+    </div>
+
+    <div class="content" id="pageContent">
+       <h4><img src="https://noveloffice.in/wp-content/uploads/2023/08/novel-office-logo.webp"></h4>
+        <h4><span class="arrow">&#9664;</span> OVERALL US REPORTS PAGE</h4>
+        <!--<h4 id="Date">DATE</h4>-->
+    <h4 id="currentDate"></h4>
+    <!--    <p>By Clicking on the Required Report, the Report Will Be displayed here.</p>-->
+    <!--</div>-->
+
+    <script>
+        function loadContent(url, pageTitle) {
+            // Show loading notification
+            showLoading();
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('pageContent').innerHTML = xhr.responseText;
+                    document.title = pageTitle;
+                    var sidebar = document.querySelector('.sidebar');
+                    // sidebar.classList.add('sidebar-hover-enabled');
+                    sidebar.style.left = '-330'; // Hide sidebar after loading content
+                    document.body.style.animationName = 'none'; // Remove animation
+                    // Remove class from body when the sidebar is closed
+                    document.body.classList.add('sidebar-open');
+                    // Hide loading notification
+                    hideLoading();
+                    sidebar.dispatchEvent(new Event('mouseenter'));
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        function showLoading() {
+            var loadingElement = document.createElement('div');
+            loadingElement.classList.add('loading');
+            loadingElement.textContent = 'Loading...';
+            document.body.appendChild(loadingElement);
+        }
+
+        function hideLoading() {
+            var loadingElement = document.querySelector('.loading');
+            if (loadingElement) {
+                loadingElement.parentNode.removeChild(loadingElement);
+            }
+        }
+               function updateDate() {
+            var today = (new Date());
+            var yesterday = new Date(today);
+            yesterday.setDate(today.getDate());
+            
+            var year = yesterday.getFullYear();
+            var month = yesterday.getMonth() + 1;
+            var day = yesterday.getDate();
+            
+            month = (month < 10 ? "0" : "") + month;
+            day = (day < 10 ? "0" : "") + day;
+
+            var formattedDate = day + "-" + month + "-" + year;
+            document.getElementById("currentDate").innerText = formattedDate;
+        }
+
+        // Update the date every second
+        setInterval(updateDate, 1000);
+
+        // Initialize the date on page load
+        updateDate();
+
+        function toggleDropdown(dropdownId) {
+            var dropdownContent = document.getElementById(dropdownId);
+            dropdownContent.classList.toggle('active');
+        }
+
+        function highlightLink(link) {
+            var links = document.querySelectorAll('.dropdown-content a');
+            links.forEach(function (el) {
+                el.classList.remove('selected-link');
+            });
+            link.classList.add('selected-link');
+        }
+          function updateDateForElements(className) {
+        var elements = document.getElementsByClassName(className);
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1); // Subtract 1 from the current date to get yesterday's date
+        var options = { month: 'short', day: 'numeric' };
+        var formattedDate = yesterday.toLocaleDateString('en-US', options);
+        
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].innerText += " - " + formattedDate;
+        }
+    }
+    function goHome() {
+            window.location.reload();
+        }
+
+    updateDateForElements("dynamicDateLink");
+        function highlightLink(link) {
+            // Remove the selected-link class from all links
+            var links = document.querySelectorAll('.dropdown-content a');
+            links.forEach(function (el) {
+                el.classList.remove('selected-link');
+            });
+
+            // Add the selected-link class to the clicked link
+            link.classList.add('selected-link');
+        }
+    document.querySelector('.sidebar').addEventListener('mouseenter', function () {
+        this.style.left = '0';
+    });
+
+    // Hide sidebar when mouse leaves sidebar area
+    document.querySelector('.sidebar').addEventListener('mouseleave', function () {
+        this.style.left = '-320px';
+    });
+    </script>
+</body>
+
+</html>
